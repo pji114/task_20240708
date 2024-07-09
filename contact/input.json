@@ -1,0 +1,20 @@
+[
+    {
+        "name":"이무기",
+        "email":"weapon@clivf.com",
+        "tel":"010-1111-2424",
+        "joined":"2020-01-05"
+    },
+    {
+        "name":"판브이",
+        "email":"panv@clivf.com",
+        "tel":"010-3535-7979",
+        "joined":"2013-07-01"
+    },
+    {
+        "name":"차호빵",
+        "email":"hobread@clivf.com",
+        "tel":"010-8531-7942",
+        "joined":"2019-12-05"
+    }
+]

@@ -19,6 +19,8 @@ spring:
     hibernate:
       ddl-auto: create-drop #시작 할때 스키마를 생성하고 세션을 종료할때 삭제
     show-sql: true
+  jackson:
+    default-property-inclusion: NON_NULL  
 
 server:
   port: 8080
