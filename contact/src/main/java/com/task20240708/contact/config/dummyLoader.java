@@ -14,11 +14,11 @@ import com.task20240708.contact.entity.Member;
 import com.task20240708.contact.repository.MemberRepository;
 
 @Component
-public class dummyLoader implements CommandLineRunner{
+public class DummyLoader implements CommandLineRunner{
 
     private final MemberRepository memberRepository;
 
-    public dummyLoader(MemberRepository memberRepository) {
+    public DummyLoader(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 

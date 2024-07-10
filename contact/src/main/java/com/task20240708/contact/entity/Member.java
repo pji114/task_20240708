@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.task20240708.contact.config.aop.validation.PhoneNumber;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,9 +24,9 @@ public class Member {
     
     String name;
 
+    //전화번호 양식 유혀성 검사 필드
+    @PhoneNumber(message = "잘못된 전화번호 양식")
     String tel;
 
     Date joined;
-
-
 }
