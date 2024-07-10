@@ -6,6 +6,31 @@
 
 + 실행환경
     1. 실행변수 : --spring.profiles.active=prod
+    2. launch.json
+    ```json
+    {
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ContactApplication",
+            "request": "launch",
+            "mainClass": "com.task20240708.contact.ContactApplication",
+            "projectName": "contact",
+            "args": "--spring.profiles.active=prod" //active profile 설정
+        }
+    ]
+}
+    ```
 # 2. 요구사항
 + 직원의 기본 연락 정보를 확인 할 수 있어야 한다
 + 직원 정보는 csv, Json 형태로 제공된다
