@@ -200,14 +200,4 @@ public class ContactController {
             throw new Exception(e);
         }
     }
-
-    /**
-     * todo
-     * 
-     * 생성 성공시 http status 201 create response -> ok
-     * delete - 부분 삭제 -> ok
-     * patch - ok
-     * exception handler -> ok
-     * 파라미터 유효성 검증 (전화번호 등..정규식 써야할듯?,  AOP 레벨에서 해야할거 같다) -> ok
-     */
 }
