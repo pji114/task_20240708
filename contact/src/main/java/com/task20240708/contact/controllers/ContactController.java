@@ -61,9 +61,9 @@ public class ContactController {
         List<Member> member = new ArrayList<>();
         List<MemberCsv> memberCsvs = new ArrayList<>();
         try{
-            if(file != null) {
+            if(file != null) { //파일이 업로드된 경우 csv or json 형태로 분기
                 String fileContentType = file.getContentType();
-                //파일이 업로드된 경우 csv or json 형태로 분기
+                
                 if(JSON_TYPE.equals(fileContentType) || TEXT_TYPE.equals(fileContentType)) { //json 형태 일때
                     member = JsonUtils.pareJsonFile(file.getInputStream());
                     this.memberRepository.saveAll(member); //저장
@@ -77,16 +77,15 @@ public class ContactController {
                     return new ResponseEntity<>(HttpStatus.UNSUPPORTED_MEDIA_TYPE); //415
                 }
 
-            } else if(body != null) {
-                //post body로 데이터를 받았을 때
-                if(JSON_TYPE.equals(contentType) || TEXT_TYPE.equals(contentType)) { //json 형태 일대
+            } else if(body != null) { //post body로 데이터를 받았을 때
+                
+                if(JSON_TYPE.equals(contentType) || TEXT_TYPE.equals(contentType)) { //json 형태일때
                     InputStream inputStream = new ByteArrayInputStream(body.getBytes());
                     member = JsonUtils.pareJsonFile(inputStream);
                     this.memberRepository.saveAll(member); //저장
 
-                } else if(CSV_TYPE.equals(contentType)) {
+                } else if(CSV_TYPE.equals(contentType)) { //csv 형태일때
                     Reader reader = new StringReader(body);
-                    // member = CsvUtils.parseCsvFile(reader);
                     memberCsvs = CsvUtils.parseCsvFile(reader);
                     member = CsvUtils.memberCsvToMember(memberCsvs);
 
@@ -201,3 +200,8 @@ public class ContactController {
         }
     }
 }
+
+/**
+ * todo
+ * Iac ..?
+ */
