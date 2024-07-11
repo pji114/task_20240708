@@ -114,6 +114,7 @@
 ## Terraform을 통한 AWS EC2 배포
  + 목표 : AWS Ec2에 도커 이미지를 배포하고 이를 Terraform 으로 구성
  + 조건 : AWs CLI 설치 후 로컬 머신에 Credential 이 적용되어 있어야 한다
+ + 스크립트는 terraform/initEc2.tf 참고
 ### ECR에 Spring boot 도커 이미지 푸시
  1. ECR Repository 구성
     ~~~
