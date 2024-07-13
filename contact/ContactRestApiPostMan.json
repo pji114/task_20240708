@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "a0adfa47-c21b-473f-9c75-0139a1b11289",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36842774"
+	},
+	"item": [
+		{
+			"name": "저장-body-json",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\":\"이무기\",\n        \"email\":\"weapon@clivf.com\",\n        \"tel\":\"010-1111-2424\",\n        \"joined\":\"2020-01-05\"\n    },\n    {\n        \"name\":\"판브이\",\n        \"email\":\"panv@clivf.com\",\n        \"tel\":\"010-3535-7979\",\n        \"joined\":\"2013-07-01\"\n    },\n    {\n        \"name\":\"차호빵\",\n        \"email\":\"hobread@clivf.com\",\n        \"tel\":\"010-8531-7942\",\n        \"joined\":\"2019-12-05\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "저장-body-csv",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "name,email,tel,joined\n김철수,charles@clovf.com,01075312468,2018.03.07\n박영희,matilda@clovf.com,01012345678,2021.04.28\n홍길동,kildong@clovf.com,01045677890,2018.03.07"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "저장-파일-csv",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/jongin/Development/clo/task_20240708/contact/input.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "저장-파일-json",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/jongin/Development/clo/task_20240708/contact/input.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "전체조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/member",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "단일조회-이름",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/member/김철수",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"member",
+						"김철수"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "단일삭제 - 이메일",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/member/pji114@naver.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"member",
+						"pji114@naver.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "단일수정 - 전화번호",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tel\": \"000-1111-2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/member/pji114@naver.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"member",
+						"pji114@naver.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

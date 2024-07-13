@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class GlobalControllerAdvice {
 
+    /**
+     * 전화번호 양식이 잘못 되었을때 BAD_REQUEST를 리턴한다
+     * @param e
+     * @return
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Map<String, String>> handleConstraintViolationException(ConstraintViolationException e) {

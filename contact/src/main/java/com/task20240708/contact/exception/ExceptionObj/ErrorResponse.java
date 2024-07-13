@@ -9,5 +9,5 @@ import lombok.ToString;
 @ToString
 public class ErrorResponse {
     private int status;
-    private String message;   
+    private String message;
 }

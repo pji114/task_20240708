@@ -52,7 +52,7 @@ public class ContactController {
      * @param file csv 또는 json 파일로 추가될 파일
      * @param body post body
      * @param contentType
-     * @return 정산 처리 되었을 경우 https status 201을 리턴한다
+     * @return 정상 처리 되었을 경우 https status 201을 리턴한다
      * @throws Exception 
      */
     @PostMapping("/members")
@@ -200,8 +200,3 @@ public class ContactController {
         }
     }
 }
-
-/**
- * todo
- * Iac ..?
- */

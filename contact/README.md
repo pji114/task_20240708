@@ -1,17 +1,16 @@
 # 1. 개발환경 및 실행환경
 + 개발환경
     1. IDE : Visual Studio Code
-    2. OS : Mac OS (M2 chip)
+    2. OS : Mac OS (arm64)
     3. JDK : openjdk version "22.0.1" 2024-04-16
++ API 테스트
+    + 첨부된 ContactRestApiPostMan.json 을 Postman에 Import 하고 input.json, input_scv 파일을 사용하여 테스트
 
 + 실행환경
     1. 실행변수 : --spring.profiles.active=prod
     2. launch.json
     ```json
     {
-    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
-    // 기존 특성에 대한 설명을 보려면 가리킵니다.
-    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
         {
@@ -110,12 +109,21 @@
 ## utils
  + Csv 파일과 Json 관련된 유틸리티 Static 클래스
 
-# 5. 프로젝트 구성
-## Terraform을 통한 AWS EC2 배포
+# 5. 실행방법 구성
+## 5.1 Java -jar 를 이용한 빌드
+ + 프로젝트 루트 경로의 contact-0.0.1-SNAPSHOT.jar 를 실행
+ ```
+ java -jar contact-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+ ```
+
+## 5.2 Terraform을 통한 AWS EC2 배포 후 실행
  + 목표 : AWS Ec2에 도커 이미지를 배포하고 이를 Terraform 으로 구성
+ + 흐름
+    + 빌드된 Docker 파일을 ECR 에 배포
+    + Terraform을 통해 EC2 생성 후 생성된 EC2에 ECR 이미지 Pull 후 어플리케이션 실행
  + 조건 : AWs CLI 설치 후 로컬 머신에 Credential 이 적용되어 있어야 한다
  + 스크립트는 terraform/initEc2.tf 참고
-### ECR에 Spring boot 도커 이미지 푸시
+#### ECR 구성
  1. ECR Repository 구성
     ~~~
     aws ecr create-repository --repository-name clo-task-spring-boot-app
@@ -140,7 +148,7 @@
     ~~~
     docker push 818729859049.dkr.ecr.ap-northeast-2.amazonaws.com/clo-task-spring-boot-app:latest
     ~~~
-### Terragorm SCript
+#### Terraform 을 통한 EC2 구성 및 ECR 이미지 Pull 스크립트
 ```
 provider "aws" {
     region = "ap-northeast-2"
